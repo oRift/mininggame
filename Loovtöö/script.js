@@ -71,7 +71,7 @@ const tiles = [];
 function oreGenerator() {
     // Calculate adjusted ore weights
     const adjustedChances = ores.map((ore, index) => {
-        const luckMultiplier = [1, 2, 3, 4][index];
+        const luckMultiplier = [-1, 1, 2, 3][index];
 
         return ore.chance * Math.pow(luck, luckMultiplier - 1);
     });
