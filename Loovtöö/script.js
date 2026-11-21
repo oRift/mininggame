@@ -5,6 +5,12 @@ const stats = [
     { name: "Professional" }
 ];
 
+// SHOP VARIABLES
+
+let coinMultiplier = 1;
+let luck = 1;
+let miningDamage = 1;
+
 // GRID SECTION
 
 const grid = document.getElementById("mining-grid");
@@ -63,14 +69,28 @@ const tiles = [];
 // Generate random ore
 
 function oreGenerator() {
-    const oreRoll = Math.random() * 100;
+    // Calculate adjusted ore weights
+    const adjustedChances = ores.map((ore, index) => {
+        const luckMultiplier = [1, 2, 3, 4][index];
+
+        return ore.chance * Math.pow(luck, luckMultiplier - 1);
+    });
+
+    // Calculate the new total weight
+    const totalChance = adjustedChances.reduce(
+        (total, chance) => total + chance, 0
+    );
+
+    // Generate a random number within the new total
+    const oreRoll = Math.random() * totalChance;
+
     let total = 0;
 
-    for (const ore of ores) {
-        total += ore.chance;
+    for (let i = 0; i < ores.length; i++) {
+        total += adjustedChances[i];
 
         if (oreRoll < total) {
-            return ore;
+            return ores[i];
         }
     }
 
@@ -262,14 +282,6 @@ updateCashDisplay();
 
 
 // Shop
-
-// SHOP VARIABLES
-
-let coinMultiplier = 1;
-let luck = 1;
-let miningDamage = 1;
-
-
 
 // PARENT CLASS
 
