@@ -1,0 +1,15 @@
+Loovtöö idee: video mäng
+
+Mäng käib niimoodi, et sa pead vajutama nuppu, et saada virtuaalset ühikut. See ühik on nagu mängu raha, mida saad kasutada mitu asjade peale, mis aitab sul rohkem raha saada.
+Mäng on korduses, ja mängu peamine eesmärk on sinu virtuaalset mänguühiku järjest rohkem saada.
+
+
+Mängu skeem:
+On nupp, mida tahad vajutada (raamat)
+Nupp annab ühikut (teadust)
+Ühikut saab kasutada esemete jaoks
+Esemed: õpikud, õpetajad, direktor, kool, arvutid, jne
+
+Allikad:
+onclick method css: https://www.geeksforgeeks.org/css/how-to-add-onclick-effect-using-css/
+position method css https://stackoverflow.com/questions/38438089/how-do-i-place-an-image-at-certain-position-of-a-web-page
